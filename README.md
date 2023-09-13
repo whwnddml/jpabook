@@ -1,3 +1,10 @@
+# 프로젝트 실행 전 h2 database 활성화 필요
+~/h2/bin/h2.sh
+```
+~/h2/bin$ ./h2.sh
+```
+
+
 # jpa-02 : h2 database 설정
 ### 사이트에서 다운로드 후 로컬에 압축해제
 https://www.h2database.com/html/main.html  
