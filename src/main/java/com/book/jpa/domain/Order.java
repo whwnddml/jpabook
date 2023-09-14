@@ -8,18 +8,19 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import static jakarta.persistence.FetchType.LAZY;
+
 
 @Entity
 @Table(name="orders")
 @Getter @Setter
 public class Order {
-    @Id
-    @GeneratedValue
-    @Column(name="order_id")
+    @Id @GeneratedValue
+    @Column(name = "order_id")
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name="member_id")
+    @ManyToOne(fetch = LAZY)
+    @JoinColumn(name = "member_id")
     private Member member;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
