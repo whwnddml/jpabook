@@ -6,10 +6,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Getter
-@Setter
+@Table(name = "order_item")
+@Getter @Setter
 public class OrderItem {
-    @Id
+    @Id @GeneratedValue
     @Column(name="order_item_id")
     private Long id;
 
