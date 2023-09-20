@@ -2,7 +2,9 @@ package com.book.jpa.domain;
 
 import com.book.jpa.domain.item.Item;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import static jakarta.persistence.FetchType.LAZY;
@@ -10,6 +12,7 @@ import static jakarta.persistence.FetchType.LAZY;
 @Entity
 @Table(name = "order_item")
 @Getter @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class OrderItem {
     @Id @GeneratedValue
     @Column(name="order_item_id")
