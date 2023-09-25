@@ -70,8 +70,21 @@ public class ItemController {
         return "items/updateItemForm";
     }
 
+
     @PostMapping("/items/{itemId}/edit")
     public String updateItem(@ModelAttribute("form") BookForm form, BindingResult result) {
+
+        if(result.hasErrors()){
+            return "items/updateItemForm";
+        }
+
+        itemService.updateItem(form.getId(), form.getName(), form.getPrice(), form.getStockQuantity());
+
+        return "redirect:/items";
+    }
+
+    @PostMapping("/items/{itemId}/editOld")
+    public String updateItemOld(@ModelAttribute("form") BookForm form, BindingResult result) {
 
         if(result.hasErrors()){
             return "items/updateItemForm";

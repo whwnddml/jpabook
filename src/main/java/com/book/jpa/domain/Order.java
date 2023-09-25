@@ -1,7 +1,9 @@
 package com.book.jpa.domain;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.aspectj.weaver.ast.Or;
 
@@ -15,6 +17,7 @@ import static jakarta.persistence.FetchType.LAZY;
 @Entity
 @Table(name="orders")
 @Getter @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Order {
     @Id @GeneratedValue
     @Column(name = "order_id")
@@ -52,12 +55,12 @@ public class Order {
         delivery.setOrder(this);
     }
 
-    //==생성 메스드==//
-    public static Order createOrder(Member member, Delivery delivery, OrderItem... orderItems){
+    //==생성 메서드==//
+    public static Order createOrder(Member member, Delivery delivery, OrderItem... orderItems) {
         Order order = new Order();
         order.setMember(member);
         order.setDelivery(delivery);
-        for(OrderItem orderItem : orderItems){
+        for (OrderItem orderItem : orderItems) {
             order.addOrderItem(orderItem);
         }
         order.setStatus(OrderStatus.ORDER);
