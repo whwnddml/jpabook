@@ -4,7 +4,8 @@
 ~/h2/bin$ ./h2.sh
 ```
 ---
-
+## jpa-03 : 도메인 분석 설계
+Entity 작성
 ## jpa-02 : h2 database 설정
 ### 사이트에서 다운로드 후 로컬에 압축해제
 https://www.h2database.com/html/main.html  
